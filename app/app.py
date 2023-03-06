@@ -8,16 +8,13 @@ import decimal
 
 app = Flask(__name__)
 
-
-
-
 #default page of our web-app
 @app.route('/')
 def Home():
     return render_template("index.html")
 
 #To predict a winner in a soccer match
-@app.route('/predict',methods=['POST'])#route to winner
+@app.route('/index',methods=['POST'])#route to winner
 def predict():
  if request.method == 'POST':
     model = pickle.load(open('model.pkl', 'rb'))
@@ -78,7 +75,31 @@ def sale_predict():
         pred1 = model_sales.predict(final_data)
         return render_template('sales.html', sales=pred1)
 
+@app.route('/dibetes', methods =['GET'])
+def home():
+    return render_template("dibetes.html")
 
+@app.route('/dibetes',methods=['POST'])
+def dibetes_predict():
+    if request.method == 'POST':
+        model_dibetes = pickle.load(open('dibetes.pkl', 'rb'))  
+    #int_features=[ request.form.values()] 
+    int_features1 = request.form['ID']
+    int_features2 = request.form['Gender']
+    int_features3 = request.form['Years']
+    int_features4 = request.form['income']
+    int_features5 = request.form['arm']
+    int_features6 = request.form['sagg']
+    int_features7 = request.form['grip']
+    int_features8 = request.form['breast']
+
+    final_features = np.array([[int_features1,int_features2,int_features3,int_features4,int_features5,int_features6,int_features7,int_features8]])
+    final_features = np.array(final_features, dtype=float)
+    predition1 = model_dibetes.predict(final_features)
+ 
+    
+    return render_template('dibetes.html', data=predition1)
+    
         
 
 if __name__ == "__main__":

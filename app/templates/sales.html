@@ -1,0 +1,35 @@
+{% extends 'main.html' %}
+
+
+    {% block content %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/sales.css') }}">
+    <title>Document</title>
+</head>
+<body bgcolor=6096B4>
+
+    <center>
+
+    <h1> MARKET SALES</h1><br>
+
+    
+    
+    <form method="post", action="{{url_for('sales')}}">
+       <b> MarketID :  <input type="text", name="MarketID", placeholder="enter 1"> <br><br>
+           MarketSize :  <input type="text", name="MarketSize", placeholder="enter 2"> <br><br>
+           LocationID :  <input type="text", name="LocationID", placeholder="enter 3"> <br><br>
+           AgeOfStore :  <input type="text", name="AgeOfStore", placeholder="enter 4"> <br><br>
+           Promotion :  <input type="text", name="Promotion", placeholder="enter 4"> <br><br>
+           Week : <input type="text", name="week", placeholder="enter 5"> <br><br><br></b>
+        <input type="submit" , value='submit' >
+    </form>
+
+    <p><h4> Number of sales are : <h4/> {{ sales }}
+    
+</center>
+
+</body>
+{% endblock content %}

@@ -1,0 +1,43 @@
+{% extends 'main.html' %}
+
+
+    {% block content %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/mainpage.css') }}">
+    <title>Document</title>
+</head>
+
+<body>
+   
+    <div class="login">
+        <h1>
+            Predicting the Football (Soccer) World Cup Winner 
+        </h1>
+        <h3>
+            Enter the followinng results to predict the Football (Soccer) World Cup Winner 
+        </h3>
+
+        <!---Main Input For Receiving Query to our ML-->
+        <form action="{{url_for('predict')}}" method="post">
+           <p><input type="text" name="average_rank" placeholder="Average Rank" required="Required" size="50"/></p> <br>
+            <p><input type="text" name="rank_difference" placeholder="Rank Difference" required="Required"  size="50"/></p><br>
+            <p><input type="text" name="point_difference" placeholder="Point Difference" required="Required" size="50"/></p><br>
+            
+        
+
+            <input type="submit" , value='submit' >
+        </form>
+
+        <br>
+        <br>
+        
+        <p><h4>The winner has : <h4/> {{ prediction }} <h4>probability of winning<h4/>
+
+
+    </div>
+
+    
+</body>
+{% endblock content %}

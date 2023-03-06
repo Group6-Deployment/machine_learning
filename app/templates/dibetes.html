@@ -1,0 +1,60 @@
+{% extends 'main.html' %}
+
+
+    {% block content %}
+    <link rel = "stylesheet" type="text/css" href="{{url_for ('static',filename='index.css')}}">
+    <title>Document</title>
+ </head>
+ <body>
+
+
+    <h2>Healthcare Analytics Diabeties </h2>
+    
+
+   <img src="static/image/download.avif" alt="">
+
+   <h2>Enter your infomation</h2>
+    <form action="{{url_for('predict')}}" method ="post">
+
+        <label for="ID">ID:</label><br>
+        <input type="text" id="ID" name="ID" value=""><br><br>
+
+        <label for="">Gender:</label><br>
+        <input type="text" id="Gender" name="Gender" value=" "><br><br>
+
+        <label for="">Years in USA:</label><br>
+        <input type="text" id="Years" name="Years" value=" "><br><br>
+
+        <label for="">Famaily income:</label><br>
+        <input type="text" id="income" name="income" value=" "><br><br>
+
+        <label for="">ArmCircum:</label><br>
+        <input type="text" id="arm" name="arm" value=" "><br><br>
+
+        <label for="">SaggtalAbnormal:</label><br>
+        <input type="text" id="sagg" name="sagg" value=" "><br><br>
+
+        <label for="">Grip Strength:</label><br>
+        <input type="text" id="grip" name="grip" value=" "><br><br>
+
+        <label for="">Breast fed:</label><br>
+        <input type="text" id="breast" name="breast" value=" "><br><br>
+
+        <input type="submit" , value='submit' >
+
+      </form>
+
+      {% if data == 0%}
+      <h1>Normal status</h1>
+
+      {% elif data == 1%}
+      <h1>High risk</h1>
+
+      {%elif data >= 2 %}
+      <h1>Diabetes patient</h1>
+
+      {%endif%}
+
+
+ </body>
+ {% endblock content %}

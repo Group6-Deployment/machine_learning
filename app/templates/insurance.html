@@ -1,0 +1,35 @@
+{% extends 'main.html' %}
+
+
+    {% block content %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body bgcolor=#d4a3ae>
+
+    <center>
+
+    <h1> INSURANCE PREMIUM DETECTION FOR NEW CUSTOMERS </h1><br>
+
+    <img src='static\image\images (1).jpg' alt=" ">
+    
+    
+    <form method="POST", action="{{url_for('insurance')}}">
+       <b> Age :  <input type="text", name='a', placeholder="enter 1"> <br><br>
+           Sex :  <input type="text", name='b', placeholder="enter 2"> <br><br>
+           Bmi :  <input type="text", name='c', placeholder="enter 3"> <br><br>
+           Children :  <input type="text", name='d', placeholder="enter 4"> <br><br>
+           Smoker : <input type="text", name='e', placeholder="enter 5"> <br><br><br></b>
+        <input type="submit" , value='submit' >
+    </form>
+
+    <p><h4> Charges are R: <h4/>{{ data}}
+    
+</center>
+
+</body>
+</html>
+{% endblock content %}
